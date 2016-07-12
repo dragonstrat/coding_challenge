@@ -7,5 +7,5 @@
 # python ./src/rolling_median.py ./venmo_input/venmo-trans.txt ./venmo_output/output.txt
 
 # the following line is a proper command to execute binary from Ganghee's code.
-./rolling_median ./venmo_input/venmo-trans.txt ./venmo_output/output.txt
+./src/rolling_median ./venmo_input/venmo-trans.txt ./venmo_output/output.txt
 
