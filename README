@@ -1,0 +1,19 @@
+How to compile: I put Makefile for the compile. Typing "make" at the root directory of the code suite 
+               will generate binary at "src" directory.
+               
+How to run: Type "run.sh"
+
+Subtlety: I assume every February has 29 days. 
+          Error can occur if the test include transactions between 02/28/2015 and 03/01/2015, for example.
+          Especially, this year, February has 29 days, so no problem with year 2016.
+          
+Explanation on the code: I seperated the median processing into three major mechanisms.
+          First part is edgeRepository class. This is to keep all the transactions and to find stale transactions.
+          I used priority_queue from STL as a equivalent for the heap.
+          Second part is myGraph class. This is to track edges belongs to a node.
+          For efficiency, I used unordered_map from STL because the possibility of big sharing is very low, so hashing will be efficient.
+          Third part is edgeDegreeStatistics class. I implemented this with vector class of STL which is equivalent to dynamic array.
+          The index of array represents the degree of nodes - so nodes with the same number of edges are kept with each index.
+          By doing so, we can find median by summing up from the first index of the array.
+          This can be efficient because of data characteristic. Majority of nodes will have less than 10 edges, so we can find median fast,
+          and at the same time, we can update the changes from the stale transactions fast.
