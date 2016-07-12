@@ -3,9 +3,10 @@ How to compile: I put Makefile for the compile. Typing "make" at the root direct
                
 How to run: Type "run.sh"
 
-Subtlety: I assume every February has 29 days. 
-          Error can occur if the test include transactions between 02/28/2015 and 03/01/2015, for example.
-          Especially, this year, February has 29 days, so no problem with year 2016.
+Subtlety: For convenience, I converted time into seconds to use internally, but as you know this can cause 
+          some possible errors from the varying day counts in months. 
+          To handle the issue, I utilized a function from internet which transforms a year/month/day into days. 
+          (http://stackoverflow.com/questions/7960318/math-to-convert-seconds-since-1970-into-date-and-vice-versa)
           
 Explanation on the code: I seperated the median processing into three major mechanisms.
           First part is edgeRepository class. This is to keep all the transactions and to find stale transactions.
